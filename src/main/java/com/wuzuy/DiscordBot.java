@@ -19,7 +19,7 @@ public class DiscordBot {
     public static void main(String[] args) throws InterruptedException {
 
 
-        jda = JDABuilder.createDefault("MTE5ODY5OTg3NzAzNTY3MTc1NQ.G5_o_g.kJefcHB-X_vFr0s9A8SUvSWNk9i5iexAJxrwhU")
+        jda = JDABuilder.createDefault("DISCORD_TOKEN")
                 .enableIntents(GatewayIntent.GUILD_MEMBERS, GatewayIntent.MESSAGE_CONTENT)
                 .build();
 

@@ -51,7 +51,7 @@ public class PayCommands extends ListenerAdapter {
                     String token = TokenGenerator.getAccessToken();
                     String valor = "9.00"; // Valor da cobrança
                     String infoPagador = "Pagamento referente ao serviço X";
-                    String chave = "61b555ee-2975-433a-af8c-785f7608f2a2"; // Sua chave Pix
+                    String chave = "SUA_CHAVE"; // Sua chave Pix
 
                     JsonObject response = PixApiClient.criarCobrancaPix(token, expiracao, valor, infoPagador, chave);
 
