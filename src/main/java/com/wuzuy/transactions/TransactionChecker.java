@@ -33,7 +33,7 @@ public class TransactionChecker implements Runnable {
 
                 if ("CONCLUIDA".equalsIgnoreCase(status)) {
                     // Atualiza o status da transação no banco de dados
-                    DatabaseManager.updateTransactionStatus(txid, "Concluída");
+                    DatabaseManager.updatePagamentoStatus(txid, "Concluída");
 
                     // Envia mensagem privada ao usuário
                     sendPrivateMessage(transaction.getIdUsuario());

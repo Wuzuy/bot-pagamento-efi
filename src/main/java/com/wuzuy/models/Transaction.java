@@ -15,19 +15,44 @@ public class Transaction {
         this.status = status;
     }
 
-    // Getters e Setters
-    public String getServidorId() { return servidorId; }
-    public void setServidorId(String servidorId) { this.servidorId = servidorId; }
+    // Getters e setters
+    public String getServidorId() {
+        return servidorId;
+    }
 
-    public String getIdCompra() { return idCompra; }
-    public void setIdCompra(String idCompra) { this.idCompra = idCompra; }
+    public void setServidorId(String servidorId) {
+        this.servidorId = servidorId;
+    }
 
-    public String getIdUsuario() { return idUsuario; }
-    public void setIdUsuario(String idUsuario) { this.idUsuario = idUsuario; }
+    public String getIdCompra() {
+        return idCompra;
+    }
 
-    public String getValorCobranca() { return valorCobranca; }
-    public void setValorCobranca(String valorCobranca) { this.valorCobranca = valorCobranca; }
+    public void setIdCompra(String idCompra) {
+        this.idCompra = idCompra;
+    }
 
-    public String getStatus() { return status; }
-    public void setStatus(String status) { this.status = status; }
+    public String getIdUsuario() {
+        return idUsuario;
+    }
+
+    public void setIdUsuario(String idUsuario) {
+        this.idUsuario = idUsuario;
+    }
+
+    public String getValorCobranca() {
+        return valorCobranca;
+    }
+
+    public void setValorCobranca(String valorCobranca) {
+        this.valorCobranca = valorCobranca;
+    }
+
+    public String getStatus() {
+        return status;
+    }
+
+    public void setStatus(String status) {
+        this.status = status;
+    }
 }

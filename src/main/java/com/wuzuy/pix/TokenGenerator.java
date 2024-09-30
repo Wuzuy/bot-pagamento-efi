@@ -13,8 +13,8 @@ import java.util.Base64;
 
 public class TokenGenerator {
 
-    private static final String PUBLIC_KEY = "CLIENT_PUBLIC_KEY";
-    private static final String SECRET_KEY = "CLIENT_SECRET_KEY";
+    private static final String PUBLIC_KEY = "Client_Id_4a3d09727f79a50cc3b07ed223e5b67031273dc0";
+    private static final String SECRET_KEY = "Client_Secret_688f611a9b8fd9af6c66a13f0f6bb33eff7660df";
 
     public static void main(String[] args) throws Exception {
         System.out.println(getAccessToken());
