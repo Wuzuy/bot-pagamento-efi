@@ -5,7 +5,7 @@
     <modelVersion>4.0.0</modelVersion>
     <groupId>com.wuzuy.bot</groupId>
     <artifactId>bot-wuzuy</artifactId>
-    <version>1.1</version>
+    <version>1.11</version>
     <repositories>
         <repository>
             <id>jitpack.io</id>

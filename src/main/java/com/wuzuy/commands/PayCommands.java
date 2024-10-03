@@ -39,6 +39,7 @@ public class PayCommands extends ListenerAdapter {
                 event.getMessage()
                         .reply("Você não tem permissão o suficiente para executar esse comando!")
                         .queue();
+                return;
             }
 
             ConversationState existingConversation = DatabaseManager.getConversation(userId);

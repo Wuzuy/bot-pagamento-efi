@@ -7,7 +7,6 @@ import com.wuzuy.pix.PixApiClient;
 import com.wuzuy.pix.TokenGenerator;
 import com.wuzuy.telegram.TelegramBot;
 import net.dv8tion.jda.api.JDA;
-import net.dv8tion.jda.api.entities.User;
 
 import java.util.List;
 import java.util.concurrent.ScheduledExecutorService;
@@ -83,23 +82,28 @@ public class PaymentChecker {
     private void sendProductMessage(PaymentData payment) {
         try {
             // Obter o usuário pelo ID
-            User user = jda.getUserById(payment.getUserId());
-            if (user != null) {
-                // Gerar o link único do Telegram
-                String linkProduto = telegramBot.generateUniqueInviteLink();
+            System.out.println("Compra confirmada! \nUser ID: " + payment.getUserId()+"\n");
 
-                if (linkProduto != null) {
-                    // Enviar a mensagem privada com o produto
-                    user.openPrivateChannel().queue(channel -> {
-                        channel.sendMessage("Obrigado pelo seu pagamento! Aqui está o seu produto: " + linkProduto).queue();
-                    });
+            jda.retrieveUserById(payment.getUserId()).queue(user -> {
+                if (user != null) {
+                    // Gerar o link único do Telegram
+                    String linkProduto = telegramBot.generateUniqueInviteLink();
+
+                    if (linkProduto != null) {
+                        // Enviar a mensagem privada com o produto
+                        user.openPrivateChannel().queue(channel -> {
+                            channel.sendMessage("Obrigado pelo seu pagamento! Aqui está o seu produto: " + linkProduto).queue();
+                        });
+                    } else {
+                        // Tratar erro ao gerar o link
+                        user.openPrivateChannel().queue(channel -> {
+                            channel.sendMessage("Obrigado pelo seu pagamento! Porém, ocorreu um erro ao gerar o link do produto. Por favor, entre em contato com o suporte.").queue();
+                        });
+                    }
                 } else {
-                    // Tratar erro ao gerar o link
-                    user.openPrivateChannel().queue(channel -> {
-                        channel.sendMessage("Obrigado pelo seu pagamento! Porém, ocorreu um erro ao gerar o link do produto. Por favor, entre em contato com o suporte.").queue();
-                    });
+                    System.out.println("Usuário não encontrado: " + payment.getUserId());
                 }
-            }
+            });
         } catch (Exception e) {
             e.printStackTrace();
         }

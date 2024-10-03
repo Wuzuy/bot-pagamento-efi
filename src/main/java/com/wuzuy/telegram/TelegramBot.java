@@ -37,7 +37,8 @@ public class TelegramBot extends TelegramLongPollingBot {
         try {
             CreateChatInviteLink createInviteLink = CreateChatInviteLink.builder()
                     .chatId(groupChatId)
-                    .createsJoinRequest(false) // Define se o link requer aprovação
+                    .memberLimit(1)
+                    .name("DiscordPay")
                     .build();
 
             ChatInviteLink inviteLink = execute(createInviteLink);
